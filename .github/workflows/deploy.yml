@@ -2,7 +2,8 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -19,7 +20,7 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Publish Blazor WASM
-        run: dotnet publish -c Release -o release --nologo
+        run: dotnet publish Harz-Rechner-GitHub/Harz-Rechner-GitHub.csproj -c Release -o release --nologo
 
       - name: Fix base-href & add .nojekyll
         run: |
