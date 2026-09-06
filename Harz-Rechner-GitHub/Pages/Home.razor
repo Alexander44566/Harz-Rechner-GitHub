@@ -1,0 +1,118 @@
+﻿@page "/"
+
+<PageTitle>Harz-Rechner</PageTitle>
+
+<h1>Epoxidharz Menge berechnen</h1>
+
+<div class="card">
+    <div class="input-card">
+        <label for="quantity">Menge</label>
+        <input type="number" id="quantity" min="0" step="any" inputmode="decimal" 
+               placeholder="in Gramm (z. B. 150)" @bind="quantity" />
+    </div>
+
+    <div class="input-card">
+        <label for="price-per-kg">Kilopreis des Harzes</label>
+        <input type="number" id="price-per-kg" min="0" step="any" inputmode="decimal"
+               placeholder="in € (z. B. 24,90)" @bind="pricePerKg" />
+    </div>
+
+    <div class="input-card">
+        <label for="additional-cost">Zusätzliche Kosten</label>
+        <input type="number" id="additional-cost" min="0" step="any" inputmode="decimal" 
+               placeholder="in € (z. B. 0,50)" @bind="additionalCost" />
+    </div>
+
+    <!-- Toggle-Button zum Ein-/Ausklappen -->
+    <button type="button" class="btn-toggle" @onclick="() => showAdvanced = !showAdvanced">
+        @(showAdvanced ? "▲ Erweiterte Optionen verbergen" : "▼ Erweiterte Optionen")
+    </button>
+
+    @if (showAdvanced)
+    {
+        <div class="input-card">
+            <label for="margin">Marge / Gewinnaufschlag (%)</label>
+            <input type="number" id="margin" min="0" step="any" inputmode="decimal" 
+                   placeholder="z. B. 25" @bind="marginPercent" />
+        </div>
+
+        <div class="input-card">
+            <label for="packaging">Verpackungskosten</label>
+            <input type="number" id="packaging" min="0" step="any" inputmode="decimal" 
+                   placeholder="in € (z. B. 0,50)" @bind="packagingCost" />
+        </div>
+
+        <div class="input-card">
+            <label for="shipping">Porto</label>
+            <input type="number" id="shipping" min="0" step="any" inputmode="decimal" 
+                   placeholder="in € (z. B. 4,50)" @bind="shippingCost" />
+        </div>
+    }
+
+    <button type="button" class="btn-calc" @onclick="Berechnen">Berechnen</button>
+
+    <div class="result-box">
+        @if (showAdvanced)
+        {
+            <div class="result-row">
+                <span>Reiner Herstellungspreis:</span>
+                <span>@productionCost.ToString("C2")</span>
+            </div>
+            <div class="result-row">
+                <span>Kosten mit Marge (@(marginPercent ?? 0)%):</span>
+                <span>@priceWithMargin.ToString("C2")</span>
+            </div>
+            <div class="result-row total">
+                <strong>Gesamtpreis (inkl. Porto):</strong>
+                <strong>@finalPrice.ToString("C2")</strong>
+            </div>
+        }
+        else
+        {
+            <div class="result-row total">
+                <strong>Gesamtpreis:</strong>
+                <strong>@productionCost.ToString("C2")</strong>
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    private decimal? quantity;
+    private decimal? pricePerKg;
+    private decimal? additionalCost;
+    private decimal? packagingCost;
+    private decimal? marginPercent;
+    private decimal? shippingCost;
+
+    private decimal productionCost;
+    private decimal priceWithMargin;
+    private decimal finalPrice;
+
+    private bool showAdvanced = false;
+
+    private void Berechnen()
+    {
+        if (quantity < 0) quantity = 0;
+        if (pricePerKg < 0) pricePerKg = 0;
+        if (additionalCost < 0) additionalCost = 0;
+        if (packagingCost < 0) packagingCost = 0;
+        if (marginPercent < 0) marginPercent = 0;
+        if (shippingCost < 0) shippingCost = 0;
+
+        decimal q = Math.Max(0m, quantity ?? 0m);
+        decimal p = Math.Max(0m, pricePerKg ?? 0m);
+        decimal add = Math.Max(0m, additionalCost ?? 0m);
+        decimal pack = Math.Max(0m, packagingCost ?? 0m);
+        decimal margin = Math.Max(0m, marginPercent ?? 0m);
+        decimal ship = Math.Max(0m, shippingCost ?? 0m);
+
+        decimal resinCost = (p / 1000m) * q;
+        productionCost = resinCost + add + pack;
+
+        decimal marginAmount = productionCost * (margin / 100m);
+        priceWithMargin = productionCost + marginAmount;
+
+        finalPrice = priceWithMargin + ship;
+    }
+}
