@@ -22,8 +22,7 @@
         <input type="number" id="additional-cost" min="0" step="any" inputmode="decimal" 
                placeholder="in € (z. B. 0,50)" @bind="additionalCost" />
     </div>
-
-    <!-- Toggle-Button zum Ein-/Ausklappen -->
+    
     <button type="button" class="btn-toggle" @onclick="() => showAdvanced = !showAdvanced">
         @(showAdvanced ? "▲ Erweiterte Optionen verbergen" : "▼ Erweiterte Optionen")
     </button>
