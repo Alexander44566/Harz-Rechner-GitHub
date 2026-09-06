@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "Harz-Rechner-GitHub",
   "resources": {
-    "hash": "sha256-kr4Ecq3l/zbLEl12ui2Ox0Pf1Y6FotytrLR60x8uqUk=",
+    "hash": "sha256-RwrAGLT8+m6Embdoebui58Yj9maI1pyPh+E0IxFW0kE=",
     "jsModuleNative": {
       "dotnet.native.8.0.30.yffim48qf4.js": "sha256-dexsp+9ih2C28zVhNnPXUbkz2QCq7lHpkyDcmaLl7NQ="
     },
@@ -17,7 +17,7 @@
       "icudt_no_CJK.dat": "sha256-L7sV7NEYP37/Qr2FPCePo5cJqRgTXRwGHuwF5Q+0Nfs="
     },
     "assembly": {
-      "Harz-Rechner-GitHub.wasm": "sha256-adh8DYbkKdzI1Y/fywhQhV/7Q17frpayRchuG9oahbc=",
+      "Harz-Rechner-GitHub.wasm": "sha256-k3HYPOHSS9zMWJg70ClcbfNKup6Sw7QRddI/3zzBN7M=",
       "Microsoft.AspNetCore.Components.wasm": "sha256-9Uz9HImdfWVJ3CEmFoMBFe1zDM/Emneu+WsB81YQvIE=",
       "Microsoft.AspNetCore.Components.Web.wasm": "sha256-EHMpRzPpxwbp/w5sLSbM3H1RXtw+rmXR8+tmmnJ6/jM=",
       "Microsoft.AspNetCore.Components.WebAssembly.wasm": "sha256-9FnCjsiyX9i3aNLKiXzh+eftdFggJDFiv0bi9Sr/m5o=",
