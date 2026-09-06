@@ -1,0 +1,116 @@
+/* /Pages/Home.razor.rz.scp.css */
+h1[b-cs8hmm08et] {
+    text-align: center;
+    margin-bottom: 24px;
+    font-size: clamp(1.25rem, 4vw, 1.8rem);
+    color: #f0f2f5;
+}
+
+.card[b-cs8hmm08et] {
+    width: 90%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: clamp(14px, 4vw, 24px);
+    border-radius: 12px;
+    background-color: rebeccapurple;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.input-card[b-cs8hmm08et] {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+}
+
+label[b-cs8hmm08et] {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+input[b-cs8hmm08et] {
+    width: 100%;
+    height: 44px;
+    padding: 0 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: #ffffff;
+    color: #11141a;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus[b-cs8hmm08et] {
+    border-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+}
+
+.btn-toggle[b-cs8hmm08et] {
+    align-self: flex-start;
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.85rem;
+    cursor: pointer;
+    padding: 4px 0;
+    text-align: left;
+    transition: color 0.2s ease;
+}
+
+.btn-toggle:hover[b-cs8hmm08et] {
+    color: #ffffff;
+    text-decoration: underline;
+    background: transparent;
+}
+
+.btn-calc[b-cs8hmm08et] {
+    height: 44px;
+    margin-top: 6px;
+    border-radius: 8px;
+    border: none;
+    background-color: #e2e8f0;
+    color: #0f172a;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-calc:hover[b-cs8hmm08et] {
+    background-color: #cbd5e1;
+}
+
+.result-box[b-cs8hmm08et] {
+    margin-top: 8px;
+    padding: 14px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.result-row[b-cs8hmm08et] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.result-row.total[b-cs8hmm08et] {
+    margin-top: 6px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.result-row.total strong[b-cs8hmm08et] {
+    font-size: 1.25rem;
+    color: #4ade80;
+}
